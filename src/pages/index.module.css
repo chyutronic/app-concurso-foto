@@ -3,7 +3,7 @@
 }
 
 .contenedorFormulario {
-  @apply w-11/12 pt-4 md:w-[500px] md:h-[500px] mx-auto border-2 border-slate-300 drop-shadow-md hover:drop-shadow-lg duration-500 bg-white;
+  @apply w-11/12 pt-4 md:w-[540px] md:h-[540px] mx-auto border-[1px] border-slate-400 drop-shadow-md hover:drop-shadow-lg duration-500 bg-white;
 }
 
 .titulo {
@@ -11,11 +11,11 @@
 }
 
 .input {
-  @apply w-11/12 mt-4 md:mt-6 md:h-[45px] md:w-[450px] p-1 md:p-3 text-center text-xl md:text-2xl border-solid border-2 border-slate-400;
+  @apply w-11/12 mt-4 md:mt-6 md:h-[45px] md:w-[450px] p-1 md:p-3 text-center text-xl md:text-2xl border-solid border-[1px] border-slate-400;
 }
 
 .contenedorInputFile {
-  @apply mx-auto m-8;
+  @apply mx-auto my-8;
 }
 
 .inputFile {
@@ -23,13 +23,21 @@
 }
 
 .inputFileNombre {
-  @apply bg-white border-2 border-slate-400 p-2 text-slate-500;
+  @apply bg-white border-[1px] border-slate-400 p-2 text-slate-500;
 }
 
 .inputFileBoton {
-  @apply bg-blue-600 border-2 border-blue-700 p-2 text-white cursor-pointer;
+  @apply bg-red-500 border-[1px] border-blue-700 p-2 text-white cursor-pointer;
 }
 
 .contenedorLabel {
   @apply grid md:grid-cols-2 grid-cols-1 w-11/12 md:max-w-[450px];
+}
+
+.contenedorBoton {
+  @apply flex justify-center;
+}
+
+.boton {
+  @apply w-11/12 mb-5 md:h-[45px] md:w-[450px] bg-blue-500 border-[1px] border-blue-700 p-2 text-white cursor-pointer;
 }

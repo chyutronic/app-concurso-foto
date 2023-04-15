@@ -1,26 +1,49 @@
 import { DataContext } from "@/contexts/DataContext";
 import { useContext, useState } from "react";
 import estilos from "./index.module.css";
+import axios from "axios";
 
 function Home() {
   const { usuario, setUsuario } = useContext(DataContext);
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-  const [telefono, setTelefono] = useState();
-  const [correo, setCorreo] = useState();
-  const [lugarCompra, setLugarCompra] = useState();
+  const [telefono, setTelefono] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [lugar_compra, setLugarCompra] = useState("");
+  const [foto, setFoto] = useState(null);
   const [nombreArchivo, setNombreArchivo] = useState("Nada seleccionado");
 
   function handleFileSelect(event) {
     const file = event.target.files[0];
     setNombreArchivo(file.name);
+    setFoto(file);
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    let formulario = document.getElementById("formul");
+
+    const formdata = new FormData();
+    formdata.append("imagen", foto);
+
+    const res = await axios.post("api/usuarios", {
+      nombre,
+      apellido,
+      telefono,
+      correo,
+      lugar_compra,
+      formdata,
+    });
+    console.log(res);
+    setFoto(null);
+    formulario.reset();
   }
 
   return (
     <>
       <div className={estilos.contenedor}>
         <div className={estilos.contenedorFormulario}>
-          <form>
+          <form onSubmit={handleSubmit} id="formul">
             <div align="center">
               <label className={estilos.titulo} htmlFor="nombre"></label>
               {/* <br></br> */}
@@ -94,15 +117,19 @@ function Home() {
                 id="archivo"
                 onChange={handleFileSelect}
                 accept="image/png, image/jpeg"
+                required
               ></input>
               <div>
                 <label htmlFor="archivo" className={estilos.contenedorLabel}>
-                  <span className={estilos.inputFileBoton}>Buscar archivo</span>
+                  <span className={estilos.inputFileBoton}>Buscar foto</span>
                   <span className={estilos.inputFileNombre}>
                     {nombreArchivo}
                   </span>
                 </label>
               </div>
+            </div>
+            <div className={estilos.contenedorBoton}>
+              <button className={estilos.boton}>ENVIAR</button>
             </div>
           </form>
         </div>
