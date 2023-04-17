@@ -4,14 +4,15 @@ import estilos from "./index.module.css";
 import axios from "axios";
 
 function Home() {
-  const { usuario, setUsuario } = useContext(DataContext);
+  const { usuario, setUsuario, nombreArchivo, setNombreArchivo } =
+    useContext(DataContext);
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [telefono, setTelefono] = useState("");
   const [correo, setCorreo] = useState("");
   const [lugar_compra, setLugarCompra] = useState("");
   const [foto, setFoto] = useState(null);
-  const [nombreArchivo, setNombreArchivo] = useState("Nada seleccionado");
+  // const [nombreArchivo, setNombreArchivo] = useState("Nada seleccionado");
 
   function handleFileSelect(event) {
     const file = event.target.files[0];
@@ -23,8 +24,8 @@ function Home() {
     e.preventDefault();
     let formulario = document.getElementById("formul");
 
-    const formdata = new FormData();
-    formdata.append("imagen", foto);
+    // const formdata = new FormData();
+    // formdata.append("imagen", foto);
 
     const res = await axios.post("api/usuarios", {
       nombre,
@@ -32,10 +33,11 @@ function Home() {
       telefono,
       correo,
       lugar_compra,
-      formdata,
+      foto,
     });
-    console.log(res);
+    console.log(foto);
     setFoto(null);
+    setNombreArchivo("");
     formulario.reset();
   }
 
@@ -43,7 +45,11 @@ function Home() {
     <>
       <div className={estilos.contenedor}>
         <div className={estilos.contenedorFormulario}>
-          <form onSubmit={handleSubmit} id="formul">
+          <form
+            onSubmit={handleSubmit}
+            id="formul"
+            encType="multipart/form-data"
+          >
             <div align="center">
               <label className={estilos.titulo} htmlFor="nombre"></label>
               {/* <br></br> */}
@@ -117,7 +123,7 @@ function Home() {
                 id="archivo"
                 onChange={handleFileSelect}
                 accept="image/png, image/jpeg"
-                required
+                // required
               ></input>
               <div>
                 <label htmlFor="archivo" className={estilos.contenedorLabel}>

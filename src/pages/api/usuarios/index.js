@@ -1,4 +1,7 @@
 import { pool } from "@/config/db";
+import fs from "fs-extra";
+import multer from "multer";
+import path from "path";
 
 export default async function handler(req, res) {
   switch (req.method) {
@@ -7,6 +10,7 @@ export default async function handler(req, res) {
     case "POST":
       const { nombre, apellido, telefono, correo, lugar_compra, foto } =
         req.body;
+
       const [result] = await pool.query("INSERT INTO usuarios SET ?", {
         nombre,
         apellido,
@@ -25,4 +29,5 @@ export default async function handler(req, res) {
         id: result.insertId,
       });
   }
+  // console.log(foto);
 }
