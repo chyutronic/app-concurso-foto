@@ -9,7 +9,7 @@ CREATE TABLE usuarios (
     telefono INT,
     correo VARCHAR(255),
     lugar_compra VARCHAR(500),
-    foto LONGBLOB,
+    foto VARCHAR(500),
     creado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
