@@ -24,18 +24,26 @@ function Home() {
     e.preventDefault();
     let formulario = document.getElementById("formul");
 
-    // const formdata = new FormData();
-    // formdata.append("imagen", foto);
+    const formdata = new FormData();
+    formdata.append("foto", foto);
+    formdata.append("nombre", nombre);
+    formdata.append("apellido", apellido);
+    formdata.append("telefono", telefono);
+    formdata.append("correo", correo);
+    formdata.append("lugar_compra", lugar_compra);
 
-    const res = await axios.post("api/usuarios", {
-      nombre,
-      apellido,
-      telefono,
-      correo,
-      lugar_compra,
-      foto,
-    });
-    console.log(foto);
+    const res = await axios.post("api/usuarios", formdata);
+    console.log(res);
+
+    // const res = await axios.post("api/usuarios", {
+    //   nombre,
+    //   apellido,
+    //   telefono,
+    //   correo,
+    //   lugar_compra,
+    //   foto,
+    // });
+    // console.log(foto);
     setFoto(null);
     setNombreArchivo("");
     formulario.reset();
