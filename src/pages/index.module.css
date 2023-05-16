@@ -1,17 +1,25 @@
 .contenedor {
-  @apply flex justify-center items-center min-h-screen w-full;
+  @apply flex justify-center w-full pt-10 pb-16 bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-bottom;
 }
 
 .contenedorFormulario {
-  @apply w-11/12 pt-4 md:w-[540px] md:h-[540px] mx-auto border-[1px] border-slate-400 drop-shadow-md hover:drop-shadow-lg duration-500 bg-white;
+  @apply w-11/12 pt-4 md:w-[540px] md:h-[640px] mx-auto border-[1px] border-red-600 rounded-3xl md:rounded-[40px] drop-shadow-md hover:drop-shadow-lg duration-500 bg-white;
+}
+
+.saludo {
+  @apply md:max-w-[60%] mx-auto text-center text-red-600 font-semibold text-xl md:text-5xl uppercase tracking-widest;
 }
 
 .titulo {
-  @apply text-gray-600 text-lg hidden;
+  @apply max-w-[95%] md:max-w-[60%] mx-auto text-center text-black font-semibold text-base md:text-xl mt-3 md:mt-5 md:mb-5 uppercase;
+}
+
+.titulo2 {
+  @apply max-w-[95%] md:max-w-[40%] mx-auto text-center text-black text-sm md:text-lg mt-3 md:mt-5 mb-3 md:mb-5 uppercase;
 }
 
 .input {
-  @apply w-11/12 mt-4 md:mt-6 md:h-[45px] md:w-[450px] p-1 md:p-3 text-center text-xl md:text-2xl border-solid border-[1px] border-slate-400;
+  @apply w-11/12 mt-4 md:mt-6 md:h-[45px] md:w-[450px] p-1 md:p-3 text-left text-lg md:text-2xl border-solid border-[1px] border-yellow-400;
 }
 
 .contenedorInputFile {
@@ -23,11 +31,11 @@
 }
 
 .inputFileNombre {
-  @apply bg-white border-[1px] border-slate-400 p-2 text-slate-500;
+  @apply bg-white border-[1px] border-yellow-400 p-2 text-slate-500;
 }
 
 .inputFileBoton {
-  @apply bg-red-500 border-[1px] border-blue-700 p-2 text-white cursor-pointer;
+  @apply bg-red-600 border-[1px] border-red-600 p-2 text-white cursor-pointer;
 }
 
 .contenedorLabel {
@@ -39,5 +47,13 @@
 }
 
 .boton {
-  @apply w-11/12 mb-5 md:h-[45px] md:w-[450px] bg-blue-500 border-[1px] border-blue-700 p-2 text-white cursor-pointer;
+  @apply w-11/12 mb-4 md:mb-5 p-2 mt-5 text-2xl md:text-3xl font-bold text-red-600 cursor-pointer uppercase md:hover:text-slate-500 duration-500;
+}
+
+.recaptcha {
+  @apply mt-5 w-11/12 mx-auto;
+}
+
+.botonRecaptcha {
+  @apply w-full flex justify-center;
 }

@@ -1,0 +1,24 @@
+.contenedor {
+  @apply mx-auto max-w-[1000px] m-10 flex justify-center;
+}
+
+.titulo {
+  @apply text-center font-bold mt-10 text-3xl;
+}
+
+.texto {
+  @apply text-lg mt-2 text-center;
+}
+
+.tabla {
+  @apply text-left text-base w-[1800px] border-t-2 border-x-2 border-slate-500 table-fixed;
+}
+
+.th {
+  width: 30px;
+  word-wrap: break-word;
+}
+
+.id {
+  @apply w-[10px] text-center overflow-hidden;
+}

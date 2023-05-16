@@ -1,0 +1,7 @@
+.contenedor {
+  @apply fixed bottom-0 flex w-full justify-center;
+}
+
+.texto {
+  @apply text-white text-xs md:text-base text-center;
+}

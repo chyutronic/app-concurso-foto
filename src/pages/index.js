@@ -1,10 +1,14 @@
 import { DataContext } from "@/contexts/DataContext";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import estilos from "./index.module.css";
 import axios from "axios";
+import Modal from "@/components/Modal";
+import ReCAPTCHA from "react-google-recaptcha";
+import { useRouter } from "next/router";
+import Pie from "@/components/Pie";
 
 function Home() {
-  const { usuario, setUsuario, nombreArchivo, setNombreArchivo } =
+  const { usuario, setUsuario, nombreArchivo, setNombreArchivo, setIntranet } =
     useContext(DataContext);
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -13,6 +17,9 @@ function Home() {
   const [lugar_compra, setLugarCompra] = useState("");
   const [foto, setFoto] = useState(null);
   // const [nombreArchivo, setNombreArchivo] = useState("Nada seleccionado");
+  const [modal, setModal] = useState(true);
+
+  const router = useRouter();
 
   function handleFileSelect(event) {
     const file = event.target.files[0];
@@ -22,135 +29,193 @@ function Home() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let formulario = document.getElementById("formul");
+    try {
+      if (captcha.current.getValue()) {
+        let formulario = document.getElementById("formul");
 
-    const formdata = new FormData();
-    formdata.append("foto", foto);
-    formdata.append("nombre", nombre);
-    formdata.append("apellido", apellido);
-    formdata.append("telefono", telefono);
-    formdata.append("correo", correo);
-    formdata.append("lugar_compra", lugar_compra);
+        const formdata = new FormData();
+        formdata.append("foto", foto);
+        formdata.append("nombre", nombre);
+        formdata.append("apellido", apellido);
+        formdata.append("telefono", telefono);
+        formdata.append("correo", correo);
+        formdata.append("lugar_compra", lugar_compra);
 
-    const res = await axios.post("api/usuarios", formdata);
-    console.log(res);
+        const res = await axios.post("api/usuarios", formdata);
+        console.log(res);
 
-    // const res = await axios.post("api/usuarios", {
-    //   nombre,
-    //   apellido,
-    //   telefono,
-    //   correo,
-    //   lugar_compra,
-    //   foto,
-    // });
-    // console.log(foto);
-    setFoto(null);
-    setNombreArchivo("");
-    formulario.reset();
+        // const res = await axios.post("api/usuarios", {
+        //   nombre,
+        //   apellido,
+        //   telefono,
+        //   correo,
+        //   lugar_compra,
+        //   foto,
+        // });
+        // console.log(foto);
+        setFoto(null);
+        setNombreArchivo("");
+        formulario.reset();
+        router.push("/cheers");
+        if (
+          nombre === "bdvsh_2023ñ#!" &&
+          correo === "intra@dulcesantahelena.cl"
+        ) {
+          setIntranet(true);
+        }
+      } else {
+        router.push("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
+
+  const captcha = useRef(null);
+
+  const onChange = () => {
+    if (captcha.current.getValue()) {
+      console.log("El usuario no es un robot");
+    }
+  };
 
   return (
     <>
       <div className={estilos.contenedor}>
-        <div className={estilos.contenedorFormulario}>
-          <form
-            onSubmit={handleSubmit}
-            id="formul"
-            encType="multipart/form-data"
-          >
-            <div align="center">
-              <label className={estilos.titulo} htmlFor="nombre"></label>
-              {/* <br></br> */}
-              <input
-                className={estilos.input}
-                name="Nombre"
-                id="nombre"
-                type="text"
-                placeholder="Nombre"
-                onChange={(e) => setNombre(e.target.value)}
-                required
-              ></input>
-            </div>
-            <div align="center">
-              <label className={estilos.titulo} htmlFor="apellido"></label>
-              {/* <br></br> */}
-              <input
-                className={estilos.input}
-                name="Apellido"
-                id="apellido"
-                type="text"
-                placeholder="Apellido"
-                onChange={(e) => setApellido(e.target.value)}
-                required
-              ></input>
-            </div>
-            <div align="center">
-              <label className={estilos.titulo} htmlFor="telefono"></label>
-              {/* <br></br> */}
-              <input
-                className={estilos.input}
-                name="Telefono"
-                id="telefono"
-                type="text"
-                placeholder="9XXXXXXXX"
-                onChange={(e) => setTelefono(e.target.value)}
-                required
-              ></input>
-            </div>
-            <div align="center">
-              <label className={estilos.titulo} htmlFor="correo"></label>
-              {/* <br></br> */}
-              <input
-                className={estilos.input}
-                name="Correo"
-                id="correo"
-                type="email"
-                placeholder="tu@correo.com"
-                onChange={(e) => setCorreo(e.target.value)}
-                pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
-                required
-              ></input>
-            </div>
-            <div align="center">
-              <label className={estilos.titulo} htmlFor="lugar_compra"></label>
-              {/* <br></br> */}
-              <input
-                className={estilos.input}
-                name="Lugar_compra"
-                id="lugar_compra"
-                type="text"
-                placeholder="lugar de compra"
-                onChange={(e) => setLugarCompra(e.target.value)}
-                required
-              ></input>
-            </div>
-            <div align="center" className={estilos.contenedorInputFile}>
-              <input
-                className={estilos.inputFile}
-                type="file"
-                id="archivo"
-                onChange={handleFileSelect}
-                accept="image/png, image/jpeg"
-                // required
-              ></input>
-              <div>
-                <label htmlFor="archivo" className={estilos.contenedorLabel}>
-                  <span className={estilos.inputFileBoton}>Buscar foto</span>
-                  <span className={estilos.inputFileNombre}>
-                    {nombreArchivo}
-                  </span>
-                </label>
+        <div>
+          <div className={estilos.saludo}>
+            Bedankt dat je <font color="black">GatoNegro</font> gekocht hebt!
+          </div>
+          <div>
+            <h3 className={estilos.titulo}>
+              Je kan nu deelnemen en misschien win je VIP{" "}
+              <font color="red">TICKETS</font> voor Concert at Sea. We verloten
+              2 x een set van 4 VIP tickets voor donderdag 22 juli 2023!
+            </h3>
+            <h3 className={estilos.titulo}>
+              Vul het formulier hieronder in en geniet van de beste muziek met
+              een glas wijn vol flavorrrrrr.
+            </h3>
+            <h3 className={estilos.titulo2}>
+              **Let op, we vragen een foto van het aankoopbewijs (bon) aan het
+              einde van het formulier**
+            </h3>
+          </div>
+          <div className={estilos.contenedorFormulario}>
+            <form
+              onSubmit={handleSubmit}
+              id="formul"
+              encType="multipart/form-data"
+            >
+              <div align="center">
+                <label className={estilos.titulo} htmlFor="nombre"></label>
+                {/* <br></br> */}
+                <input
+                  className={estilos.input}
+                  name="Nombre"
+                  id="nombre"
+                  type="text"
+                  placeholder="Voornaam"
+                  onChange={(e) => setNombre(e.target.value)}
+                  required
+                ></input>
               </div>
-            </div>
-            <div className={estilos.contenedorBoton}>
-              <button className={estilos.boton}>ENVIAR</button>
-            </div>
-          </form>
-        </div>
-        {/* <div>
+              <div align="center">
+                <label className={estilos.titulo} htmlFor="apellido"></label>
+                {/* <br></br> */}
+                <input
+                  className={estilos.input}
+                  name="Apellido"
+                  id="apellido"
+                  type="text"
+                  placeholder="Achternaam"
+                  onChange={(e) => setApellido(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div align="center">
+                <label className={estilos.titulo} htmlFor="telefono"></label>
+                {/* <br></br> */}
+                <input
+                  className={estilos.input}
+                  name="Telefono"
+                  id="telefono"
+                  type="text"
+                  placeholder="Telefoonnummer"
+                  onChange={(e) => setTelefono(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div align="center">
+                <label className={estilos.titulo} htmlFor="correo"></label>
+                {/* <br></br> */}
+                <input
+                  className={estilos.input}
+                  name="Correo"
+                  id="correo"
+                  type="email"
+                  placeholder="Email"
+                  onChange={(e) => setCorreo(e.target.value)}
+                  pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"
+                  required
+                ></input>
+              </div>
+              <div align="center">
+                <label
+                  className={estilos.titulo}
+                  htmlFor="lugar_compra"
+                ></label>
+                {/* <br></br> */}
+                <input
+                  className={estilos.input}
+                  name="Lugar_compra"
+                  id="lugar_compra"
+                  type="text"
+                  placeholder="Supermarkt"
+                  onChange={(e) => setLugarCompra(e.target.value)}
+                  required
+                ></input>
+              </div>
+              <div align="center" className={estilos.contenedorInputFile}>
+                <input
+                  className={estilos.inputFile}
+                  type="file"
+                  id="archivo"
+                  onChange={handleFileSelect}
+                  accept="image/png, image/jpeg"
+                  // required
+                ></input>
+                <div>
+                  <label htmlFor="archivo" className={estilos.contenedorLabel}>
+                    <span className={estilos.inputFileBoton}>
+                      Aankoopbewijs
+                    </span>
+                    <span className={estilos.inputFileNombre}>
+                      {nombreArchivo}
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div className={estilos.recaptcha}>
+                <ReCAPTCHA
+                  className={estilos.botonRecaptcha}
+                  ref={captcha}
+                  sitekey="6LeUwxEmAAAAAGbMAF70GpWuOnlO4V68a_JRWDlt"
+                  onChange={onChange}
+                />
+              </div>
+              <div className={estilos.contenedorBoton}>
+                <button className={estilos.boton}>Verstuur! ►►</button>
+              </div>
+            </form>
+          </div>
+          {/* <div>
             <p>{usuario}</p>
           </div> */}
+        </div>
+        <Pie />
       </div>
+      <Modal estado={modal} cambiarEstado={setModal} />
     </>
   );
 }

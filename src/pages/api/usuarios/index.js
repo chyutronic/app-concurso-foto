@@ -3,6 +3,7 @@ import { pool } from "@/config/db";
 import fs from "fs-extra";
 import multer from "multer";
 import path from "path";
+import sharp from "sharp";
 
 export const config = {
   api: {
@@ -59,6 +60,14 @@ handler.post(async (req, res) => {
       foto: req.file.filename,
     });
 
+    // Procesar la imagen utilizando Sharp y guardarla en una ubicación temporal
+    const tempOutputPath = "./public/" + "modif" + req.file.filename;
+    await sharp(req.file.path).resize(800, null).toFile(tempOutputPath);
+
+    // Reemplazar el archivo original con el archivo procesado
+    fs.unlinkSync(req.file.path);
+    fs.renameSync(tempOutputPath, req.file.path);
+
     return res.status(200).json({
       nombre,
       apellido,
@@ -68,7 +77,6 @@ handler.post(async (req, res) => {
       id: result.insertId,
       message: "subido",
     });
-    return res.status(200).json("subido");
   } catch (error) {
     console.log(error);
     return res.status(500).json("error");

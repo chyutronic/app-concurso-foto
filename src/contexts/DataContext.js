@@ -5,7 +5,7 @@ export const DataContext = createContext();
 export function DataContextProvider({ children }) {
   const [usuario, setUsuario] = useState("Juan");
   const [intranet, setIntranet] = useState(false);
-  const [nombreArchivo, setNombreArchivo] = useState("Nada seleccionado");
+  const [nombreArchivo, setNombreArchivo] = useState("FILENAME.JPG");
 
   return (
     <DataContext.Provider

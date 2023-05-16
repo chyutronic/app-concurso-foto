@@ -1,0 +1,55 @@
+.ventanaModal {
+  @apply fixed top-0 w-screen h-screen left-0 bg-gray-900/70 flex justify-center place-items-center;
+}
+
+.contenedorModal {
+  @apply bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-bottom bg-no-repeat relative w-full h-full;
+}
+
+.nav {
+  @apply flex h-full;
+}
+
+.contenedorPregunta {
+  @apply -mt-40 md:-mt-60;
+}
+
+.logo {
+  @apply mx-auto md:flex justify-center gap-14;
+}
+
+.logos {
+  @apply w-[200px] md:w-[270px] mx-auto mt-6 md:mt-0;
+}
+
+.saludo {
+  @apply text-center text-red-600 font-semibold text-4xl md:text-5xl mt-8 md:mt-20 uppercase tracking-widest;
+  font-family: "Jost", sans-serif;
+}
+
+.titulo {
+  @apply text-center text-black font-semibold text-3xl md:text-4xl mt-8 md:mt-16 uppercase;
+  font-family: "Jost", sans-serif;
+}
+
+.contenedorBotones {
+  @apply flex justify-center mt-6 md:mt-16 gap-4;
+}
+
+.boton {
+  @apply flex items-center justify-center text-4xl md:text-4xl font-semibold text-red-600 hover:text-slate-400 uppercase;
+  font-family: "Jost", sans-serif;
+}
+
+.botonSeparador {
+  @apply flex items-center justify-center text-2xl md:text-4xl font-semibold text-black;
+  font-family: "Jost", sans-serif;
+}
+
+.gatoVolador {
+  @apply w-[130px] mx-auto mt-5 md:hidden;
+}
+
+.nav {
+  @apply flex items-center justify-center;
+}

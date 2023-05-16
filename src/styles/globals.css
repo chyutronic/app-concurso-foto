@@ -15,12 +15,11 @@
 
 html {
   background: linear-gradient(var(--white), var(--gray2));
-  font-family: "Roboto", sans-serif;
+  font-family: "Jost", sans-serif;
 }
 
 body {
   min-height: 100vh;
   min-width: 100%;
   position: relative;
-  padding-bottom: 3em;
 }

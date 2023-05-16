@@ -1,0 +1,7 @@
+.contenedorBoton {
+  @apply flex justify-center items-center h-[80px] mb-10 md:mt-0 mt-5 md:pt-10;
+}
+
+.boton {
+  @apply w-[150px] md:w-[180px] text-xl md:text-2xl mx-auto absolute text-white bg-[var(--santaElena2)] border-solid border-2 border-white rounded-full p-1 hover:bg-slate-400 duration-500 font-bold;
+}
