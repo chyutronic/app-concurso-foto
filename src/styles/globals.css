@@ -14,7 +14,8 @@
 }
 
 html {
-  background: linear-gradient(var(--white), var(--gray2));
+  /* background: linear-gradient(var(--white), var(--gray2)); */
+  background-color: #b13a26;
   font-family: "Jost", sans-serif;
 }
 

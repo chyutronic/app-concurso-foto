@@ -6,10 +6,17 @@ import Modal from "@/components/Modal";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/router";
 import Pie from "@/components/Pie";
+import ModalUploading from "@/components/ModalUploading";
 
 function Home() {
-  const { usuario, setUsuario, nombreArchivo, setNombreArchivo, setIntranet } =
-    useContext(DataContext);
+  const {
+    usuario,
+    setUsuario,
+    nombreArchivo,
+    setNombreArchivo,
+    setIntranet,
+    setLogeado,
+  } = useContext(DataContext);
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [telefono, setTelefono] = useState("");
@@ -18,6 +25,7 @@ function Home() {
   const [foto, setFoto] = useState(null);
   // const [nombreArchivo, setNombreArchivo] = useState("Nada seleccionado");
   const [modal, setModal] = useState(true);
+  const [uploading, setUploading] = useState(false);
 
   const router = useRouter();
 
@@ -55,7 +63,9 @@ function Home() {
         // console.log(foto);
         setFoto(null);
         setNombreArchivo("");
+        setLogeado(true);
         formulario.reset();
+        setUploading(true);
         router.push("/cheers");
         if (
           nombre === "bdvsh_2023ñ#!" &&
@@ -106,6 +116,7 @@ function Home() {
               onSubmit={handleSubmit}
               id="formul"
               encType="multipart/form-data"
+              autocomplete="off"
             >
               <div align="center">
                 <label className={estilos.titulo} htmlFor="nombre"></label>
@@ -216,6 +227,7 @@ function Home() {
         <Pie />
       </div>
       <Modal estado={modal} cambiarEstado={setModal} />
+      <ModalUploading estado={uploading} cambiarEstado={setUploading} />
     </>
   );
 }

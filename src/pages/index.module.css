@@ -1,5 +1,5 @@
 .contenedor {
-  @apply flex justify-center w-full pt-10 pb-16 bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-bottom;
+  @apply flex justify-center h-full w-full pt-10 pb-16 bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-bottom;
 }
 
 .contenedorFormulario {
@@ -11,11 +11,11 @@
 }
 
 .titulo {
-  @apply max-w-[95%] md:max-w-[60%] mx-auto text-center text-black font-semibold text-base md:text-xl mt-3 md:mt-5 md:mb-5 uppercase;
+  @apply w-11/12 md:max-w-[60%] mx-auto text-center text-black font-semibold text-sm md:text-xl mt-3 md:mt-5 md:mb-5 uppercase;
 }
 
 .titulo2 {
-  @apply max-w-[95%] md:max-w-[40%] mx-auto text-center text-black text-sm md:text-lg mt-3 md:mt-5 mb-3 md:mb-5 uppercase;
+  @apply w-11/12 md:max-w-[40%] mx-auto text-center text-black text-xs md:text-lg mt-3 md:mt-5 mb-3 md:mb-5 uppercase;
 }
 
 .input {

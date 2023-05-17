@@ -1,5 +1,5 @@
 .contenedor {
-  @apply fixed bottom-0 flex w-full justify-center;
+  @apply absolute bottom-0 flex w-full justify-center;
 }
 
 .texto {

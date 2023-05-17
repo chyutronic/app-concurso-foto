@@ -1,11 +1,31 @@
 import Pie from "@/components/Pie";
 import estilos from "./cheers.module.css";
 import { DataContext } from "@/contexts/DataContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import BotonIntranet from "@/components/BotonIntranet";
+import { useRouter } from "next/router";
 
 function Cheers() {
-  const { intranet } = useContext(DataContext);
+  const { intranet, logeado } = useContext(DataContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (logeado === false) {
+      router.push("/");
+    }
+
+    const timer = setTimeout(() => {
+      // Aquí puedes llamar a la función que deseas ejecutar después de un tiempo determinado
+      router.push("/");
+
+      console.log("La función se ejecutó después de 3 segundos");
+    }, 3000); // 3000 milisegundos = 3 segundos
+
+    // Importante: Limpia el temporizador en el momento en que el componente se desmonta o cuando useEffect se vuelva a ejecutar.
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
     <div>
@@ -27,11 +47,8 @@ function Cheers() {
               <div className={estilos.logo}>
                 <img className={estilos.logos} src="/catsLogoConcert.svg"></img>
               </div>
-              <img
-                className={estilos.botellaCel}
-                src="/catsBotellaCel.png"
-              ></img>
             </div>
+            <img className={estilos.botellaCel} src="/catsBotellaCel.png"></img>
             <img className={estilos.botella} src="/catsBotella.png"></img>
           </div>
         </div>

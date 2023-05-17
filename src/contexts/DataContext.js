@@ -6,6 +6,7 @@ export function DataContextProvider({ children }) {
   const [usuario, setUsuario] = useState("Juan");
   const [intranet, setIntranet] = useState(false);
   const [nombreArchivo, setNombreArchivo] = useState("FILENAME.JPG");
+  const [logeado, setLogeado] = useState(false);
 
   return (
     <DataContext.Provider
@@ -16,6 +17,8 @@ export function DataContextProvider({ children }) {
         setIntranet,
         nombreArchivo,
         setNombreArchivo,
+        logeado,
+        setLogeado,
       }}
     >
       {children}
