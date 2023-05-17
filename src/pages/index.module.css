@@ -1,13 +1,13 @@
 .contenedor {
-  @apply flex justify-center h-full w-full pt-10 pb-16 bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-bottom;
+  @apply flex justify-center h-full w-full bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-bottom bg-no-repeat;
 }
 
 .contenedorFormulario {
-  @apply w-11/12 pt-4 md:w-[540px] md:h-[640px] mx-auto border-[1px] border-red-600 rounded-3xl md:rounded-[40px] drop-shadow-md hover:drop-shadow-lg duration-500 bg-white;
+  @apply w-11/12 pt-4 mb-8 md:mb-12 md:w-[540px] md:h-[640px] mx-auto border-[1px] border-red-600 rounded-3xl md:rounded-[40px] drop-shadow-md hover:drop-shadow-lg duration-500 bg-white;
 }
 
 .saludo {
-  @apply md:max-w-[60%] mx-auto text-center text-red-600 font-semibold text-xl md:text-5xl uppercase tracking-widest;
+  @apply md:max-w-[60%] mx-auto text-center text-red-600 font-semibold text-xl md:text-5xl mt-5 md:mt-10 uppercase tracking-widest;
 }
 
 .titulo {

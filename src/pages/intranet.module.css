@@ -1,5 +1,5 @@
 .contenedor {
-  @apply mx-auto max-w-[1000px] m-10 flex justify-center;
+  @apply flex justify-center bg-slate-200;
 }
 
 .titulo {

@@ -116,7 +116,7 @@ function Home() {
               onSubmit={handleSubmit}
               id="formul"
               encType="multipart/form-data"
-              autocomplete="off"
+              autoComplete="off"
             >
               <div align="center">
                 <label className={estilos.titulo} htmlFor="nombre"></label>

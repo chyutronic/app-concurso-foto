@@ -16,10 +16,11 @@ function Cheers() {
 
     const timer = setTimeout(() => {
       // Aquí puedes llamar a la función que deseas ejecutar después de un tiempo determinado
-      router.push("/");
+      // router.push("/");
+      location.reload();
 
       console.log("La función se ejecutó después de 3 segundos");
-    }, 3000); // 3000 milisegundos = 3 segundos
+    }, 10000); // 10000 milisegundos = 10 segundos
 
     // Importante: Limpia el temporizador en el momento en que el componente se desmonta o cuando useEffect se vuelva a ejecutar.
     return () => {

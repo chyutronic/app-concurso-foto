@@ -68,8 +68,8 @@ function Intranet() {
                         <td className={estilos.th}>{usuario.telefono}</td>
                         <td className={estilos.th}>{usuario.correo}</td>
                         <td className={estilos.th}>{usuario.lugar_compra}</td>
-                        <td className={estilos.th}>{usuario.creado}</td>
                         <td className={estilos.th}>{usuario.foto}</td>
+                        <td className={estilos.th}>{usuario.creado}</td>
                       </tr>
                     </tbody>
                   </table>
