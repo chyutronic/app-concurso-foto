@@ -20,7 +20,7 @@ function Cheers() {
       location.reload();
 
       console.log("La función se ejecutó después de 3 segundos");
-    }, 10000); // 10000 milisegundos = 10 segundos
+    }, 8000); // 8000 milisegundos = 10 segundos
 
     // Importante: Limpia el temporizador en el momento en que el componente se desmonta o cuando useEffect se vuelva a ejecutar.
     return () => {

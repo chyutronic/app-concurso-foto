@@ -1,5 +1,5 @@
 import { DataContext } from "@/contexts/DataContext";
-import { useContext, useState, useRef } from "react";
+import { useContext, useState, useRef, useEffect } from "react";
 import estilos from "./index.module.css";
 import axios from "axios";
 import Modal from "@/components/Modal";
@@ -15,6 +15,7 @@ function Home() {
     nombreArchivo,
     setNombreArchivo,
     setIntranet,
+    logeado,
     setLogeado,
   } = useContext(DataContext);
   const [nombre, setNombre] = useState("");
@@ -31,7 +32,7 @@ function Home() {
 
   function handleFileSelect(event) {
     const file = event.target.files[0];
-    setNombreArchivo(file.name);
+    setNombreArchivo(file?.name);
     setFoto(file);
   }
 
@@ -88,6 +89,12 @@ function Home() {
       console.log("El usuario no es un robot");
     }
   };
+
+  useEffect(() => {
+    if (logeado === true) {
+      location.reload();
+    }
+  }, []);
 
   return (
     <>
@@ -193,7 +200,7 @@ function Home() {
                   type="file"
                   id="archivo"
                   onChange={handleFileSelect}
-                  accept="image/png, image/jpeg"
+                  accept="image/png, image/jpeg, image/jpg"
                   // required
                 ></input>
                 <div>

@@ -1,13 +1,9 @@
 .ventanaModal {
-  @apply fixed top-0 w-screen h-screen left-0 bg-gray-900/70 flex justify-center place-items-center;
+  @apply w-screen h-screen flex justify-center;
 }
 
 .contenedorModal {
-  @apply bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondo.jpg')] bg-cover bg-bottom bg-no-repeat relative w-full h-full;
-}
-
-.nav {
-  @apply flex h-full;
+  @apply bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondo.jpg')] bg-cover bg-bottom bg-no-repeat w-full h-full;
 }
 
 .logo {
@@ -15,7 +11,7 @@
 }
 
 .logos {
-  @apply w-[200px] md:w-[400px] mx-auto mt-10;
+  @apply w-[200px] md:w-[400px] mx-auto mt-8 md:mt-10;
 }
 
 .saludo {
@@ -23,15 +19,15 @@
 }
 
 .titulo {
-  @apply md:max-w-[60%] w-11/12 mx-auto text-center text-black font-semibold text-3xl md:text-6xl mt-4 md:mt-6 uppercase;
+  @apply md:max-w-[60%] w-11/12 mx-auto text-center text-black font-semibold text-2xl md:text-5xl mt-4 md:mt-6 uppercase;
 }
 
 .gatoVolador {
-  @apply w-[150px] md:w-[300px] mx-auto mb-5;
+  @apply w-[150px] md:w-[300px] mx-auto mb-5 mt-16 md:mt-20;
 }
 
 .nav {
-  @apply flex items-center justify-center;
+  @apply flex justify-center;
 }
 
 .botella {
