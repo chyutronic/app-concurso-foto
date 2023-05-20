@@ -6,6 +6,7 @@ import { DataContext } from "@/contexts/DataContext";
 function MostrarFoto() {
   const {
     intranet,
+    setIntranet,
     usuarios,
     setUsuarios,
     idSelect,
@@ -16,6 +17,7 @@ function MostrarFoto() {
 
   const salir = () => {
     router.push("/intranet");
+    setIntranet(true);
   };
 
   useEffect(() => {

@@ -4,18 +4,28 @@ import { useRouter } from "next/router";
 import { useEffect, useState, useContext } from "react";
 import { DataContext } from "@/contexts/DataContext";
 import MostrarFoto from "@/components/MostrarFoto";
+import ModalIntranet from "@/components/ModalIntranet";
 
 function Intranet() {
-  const { intranet, usuarios, setUsuarios, idSelect, setIdSelect } =
-    useContext(DataContext);
+  const {
+    usuarios,
+    setUsuarios,
+    idSelect,
+    setIdSelect,
+    intranet,
+    setIntranet,
+  } = useContext(DataContext);
 
   const { push, query } = useRouter();
 
   useEffect(() => {
-    // if (intranet === false) {
-    //   router.push("/");
-    // }
-
+    console.log(intranet);
+    // setIntranet(true);
+    if (!intranet) {
+      setIntranet(true);
+    } else {
+      setIntranet(false);
+    }
     async function cargarUsuarios() {
       const res = await axios.get("api/usuarios");
       setUsuarios(res.data);
@@ -77,6 +87,7 @@ function Intranet() {
           </div>
         </div>
       </div>
+      <ModalIntranet estado={intranet} cambiarEstado={setIntranet} />
     </>
   );
 }

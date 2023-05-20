@@ -10,6 +10,8 @@ function Cheers() {
   const router = useRouter();
 
   useEffect(() => {
+    document.title = "Concert at Sea / Cheers";
+
     if (logeado === false) {
       router.push("/");
     }
@@ -50,7 +52,7 @@ function Cheers() {
               </div>
             </div>
             <img className={estilos.botellaCel} src="/catsBotellaCel.png"></img>
-            <img className={estilos.botella} src="/catsBotella.png"></img>
+            {/* <img className={estilos.botella} src="/catsBotella.png"></img> */}
           </div>
         </div>
       </div>

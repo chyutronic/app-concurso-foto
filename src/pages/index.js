@@ -39,43 +39,32 @@ function Home() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      if (captcha.current.getValue()) {
-        let formulario = document.getElementById("formul");
-
-        const formdata = new FormData();
-        formdata.append("foto", foto);
-        formdata.append("nombre", nombre);
-        formdata.append("apellido", apellido);
-        formdata.append("telefono", telefono);
-        formdata.append("correo", correo);
-        formdata.append("lugar_compra", lugar_compra);
-
-        const res = await axios.post("api/usuarios", formdata);
-        console.log(res);
-
-        // const res = await axios.post("api/usuarios", {
-        //   nombre,
-        //   apellido,
-        //   telefono,
-        //   correo,
-        //   lugar_compra,
-        //   foto,
-        // });
-        // console.log(foto);
-        setFoto(null);
-        setNombreArchivo("");
-        setLogeado(true);
-        formulario.reset();
+      if (foto) {
         setUploading(true);
-        router.push("/cheers");
-        if (
-          nombre === "bdvsh_2023ñ#!" &&
-          correo === "intra@dulcesantahelena.cl"
-        ) {
-          setIntranet(true);
+        if (captcha.current.getValue()) {
+          let formulario = document.getElementById("formul");
+
+          const formdata = new FormData();
+          formdata.append("foto", foto);
+          formdata.append("nombre", nombre);
+          formdata.append("apellido", apellido);
+          formdata.append("telefono", telefono);
+          formdata.append("correo", correo);
+          formdata.append("lugar_compra", lugar_compra);
+
+          const res = await axios.post("api/usuarios", formdata);
+          console.log(res);
+
+          setFoto(null);
+          setNombreArchivo("");
+          setLogeado(true);
+          formulario.reset();
+          router.push("/cheers");
+        } else {
+          router.push("/");
         }
       } else {
-        router.push("/");
+        alert("Image missing...");
       }
     } catch (error) {
       console.error(error);
@@ -91,13 +80,15 @@ function Home() {
   };
 
   useEffect(() => {
+    document.title = "Concert at Sea / Form";
+
     if (logeado === true) {
       location.reload();
     }
   }, []);
 
   return (
-    <>
+    <div>
       <div className={estilos.contenedor}>
         <div>
           <div className={estilos.saludo}>
@@ -235,7 +226,7 @@ function Home() {
       </div>
       <Modal estado={modal} cambiarEstado={setModal} />
       <ModalUploading estado={uploading} cambiarEstado={setUploading} />
-    </>
+    </div>
   );
 }
 

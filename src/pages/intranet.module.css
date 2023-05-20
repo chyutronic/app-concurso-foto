@@ -1,5 +1,5 @@
 .contenedor {
-  @apply flex justify-center bg-slate-200;
+  @apply justify-center bg-slate-200 flex;
 }
 
 .titulo {
