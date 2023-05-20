@@ -3,17 +3,18 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState, useContext } from "react";
 import { DataContext } from "@/contexts/DataContext";
+import MostrarFoto from "@/components/MostrarFoto";
 
 function Intranet() {
-  const [usuarios, setUsuarios] = useState([]);
-  const { intranet } = useContext(DataContext);
+  const { intranet, usuarios, setUsuarios, idSelect, setIdSelect } =
+    useContext(DataContext);
 
-  const router = useRouter();
+  const { push, query } = useRouter();
 
   useEffect(() => {
-    if (intranet === false) {
-      router.push("/");
-    }
+    // if (intranet === false) {
+    //   router.push("/");
+    // }
 
     async function cargarUsuarios() {
       const res = await axios.get("api/usuarios");
@@ -21,6 +22,11 @@ function Intranet() {
     }
     cargarUsuarios();
   }, []);
+
+  function mostrarFoto(user) {
+    setIdSelect(user);
+    push("/edit/" + user);
+  }
 
   return (
     <>
@@ -51,17 +57,9 @@ function Intranet() {
             <div>
               {usuarios.map((usuario) => (
                 <div key={usuario.id}>
-                  {/* <img
-            src={usuario.foto}
-            alt={usuario.nombre}
-            style={{
-              width: 150,
-              height: 150,
-            }}
-          /> */}
                   <table className={estilos.tabla}>
                     <tbody>
-                      <tr>
+                      <tr onClick={() => mostrarFoto(usuario.id)}>
                         <td className={estilos.id}>{usuario.id}</td>
                         <td className={estilos.th}>{usuario.nombre}</td>
                         <td className={estilos.th}>{usuario.apellido}</td>
