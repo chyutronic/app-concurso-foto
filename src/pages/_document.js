@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -8,11 +9,11 @@ export default function Document() {
         <meta name="description" content="Página concurso de gatonegro" />
         <link rel="icon" href="/copa.png" />
         <link rel="apple-touch-icon" href="/ruta/a/la/imagen.png" />
-        <script
+        <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-S8Y1RZ9KW6"
-        ></script>
-        <script src="/ga.js"></script>
+        />
+        <Script async src="/ga.js" />
       </Head>
       <body>
         <Main />

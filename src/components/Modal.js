@@ -29,6 +29,7 @@ function Modal({ estado, cambiarEstado }) {
                       className={estilos.boton}
                       onClick={() => {
                         cambiarEstado(false);
+                        document.title = "Concert at Sea / Form";
                       }}
                     >
                       JA

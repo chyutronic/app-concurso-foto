@@ -80,7 +80,11 @@ function Home() {
   };
 
   useEffect(() => {
-    document.title = "Concert at Sea / Form";
+    if (modal) {
+      document.title = "Concert at Sea";
+    } else {
+      document.title = "Concert at Sea / Form";
+    }
 
     if (logeado === true) {
       location.reload();
