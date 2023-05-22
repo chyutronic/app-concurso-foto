@@ -10,11 +10,12 @@ export default function Document() {
         <link rel="icon" href="/copa.png" />
         <link rel="apple-touch-icon" href="/ruta/a/la/imagen.png" />
         <Script
+          id="ga-app"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-S8Y1RZ9KW6"
           strategy="afterInteractive"
         />
-        <Script async strategy="afterInteractive">
+        <Script id="ga-app-b" async strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag() {
