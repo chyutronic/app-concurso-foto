@@ -12,8 +12,18 @@ export default function Document() {
         <Script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-S8Y1RZ9KW6"
+          strategy="afterInteractive"
         />
-        <Script async src="/ga.js" />
+        <Script async strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+              dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-S8Y1RZ9KW6");
+        `}
+        </Script>
       </Head>
       <body>
         <Main />

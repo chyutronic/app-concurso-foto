@@ -102,7 +102,7 @@ function Home() {
             <h3 className={estilos.titulo}>
               Je kan nu deelnemen en misschien win je VIP{" "}
               <font color="red">TICKETS</font> voor Concert at Sea. We verloten
-              2 x een set van 4 VIP tickets voor donderdag 22 juli 2023!
+              2 x een set van 8 VIP tickets voor donderdag 22 juli 2023!
             </h3>
             <h3 className={estilos.titulo}>
               Vul het formulier hieronder in en geniet van de beste muziek met
