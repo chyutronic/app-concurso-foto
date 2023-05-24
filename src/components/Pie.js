@@ -4,7 +4,7 @@ function Pie() {
   return (
     <div className={estilos.contenedor}>
       <p className={estilos.texto}>
-        De actievoorwaarden zijn geldig voor deelnemers vanaf 18 jaar. LEGALES
+        De actievoorwaarden zijn geldig voor deelnemers vanaf 18 jaar.
       </p>
     </div>
   );
