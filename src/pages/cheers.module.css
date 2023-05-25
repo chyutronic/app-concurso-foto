@@ -35,5 +35,5 @@
 }
 
 .botellaCel {
-  @apply absolute bottom-0 w-[160px] md:hidden block mb-10;
+  @apply mx-auto w-[160px] md:hidden block mt-8 mb-10;
 }

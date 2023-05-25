@@ -21,7 +21,7 @@ function Cheers() {
       // router.push("/");
       location.reload();
 
-      console.log("La función se ejecutó después de 3 segundos");
+      console.log("La función se ejecutó después de 8 segundos");
     }, 8000); // 8000 milisegundos = 10 segundos
 
     // Importante: Limpia el temporizador en el momento en que el componente se desmonta o cuando useEffect se vuelva a ejecutar.
@@ -50,9 +50,14 @@ function Cheers() {
               <div className={estilos.logo}>
                 <img className={estilos.logos} src="/catsLogoConcert.svg"></img>
               </div>
+              <div>
+                <img
+                  className={estilos.botellaCel}
+                  src="/catsBotellaCel.png"
+                ></img>
+                {/* <img className={estilos.botella} src="/catsBotella.png"></img> */}
+              </div>
             </div>
-            <img className={estilos.botellaCel} src="/catsBotellaCel.png"></img>
-            {/* <img className={estilos.botella} src="/catsBotella.png"></img> */}
           </div>
         </div>
       </div>

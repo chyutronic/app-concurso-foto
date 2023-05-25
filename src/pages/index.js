@@ -225,8 +225,8 @@ function Home() {
           {/* <div>
             <p>{usuario}</p>
           </div> */}
+          <Pie />
         </div>
-        <Pie />
       </div>
       <Modal estado={modal} cambiarEstado={setModal} />
       <ModalUploading estado={uploading} cambiarEstado={setUploading} />
