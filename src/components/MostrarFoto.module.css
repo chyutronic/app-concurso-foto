@@ -3,7 +3,7 @@
 }
 
 .contenedorModal {
-  @apply flex justify-center bg-slate-300 h-[350px] md:h-[800px] w-11/12 md:w-[800px] relative rounded-2xl border-2 border-white;
+  @apply flex justify-center bg-slate-300 w-11/12 md:w-[900px] relative rounded-2xl border-2 border-white;
 }
 
 .contenedorInfo {
@@ -11,9 +11,9 @@
 }
 
 .contenedorImagen {
-  @apply flex mx-auto;
+  @apply flex mx-auto mb-5;
 }
 
 .boton {
-  @apply text-center mx-auto border-2 border-slate-500 rounded-full p-2 w-[120px] mt-5 md:hover:bg-slate-500 duration-500;
+  @apply mb-10 text-center mx-auto border-2 border-slate-500 rounded-full p-2 w-[120px] mt-5 md:hover:bg-slate-500 duration-500;
 }

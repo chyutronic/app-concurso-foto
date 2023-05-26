@@ -36,15 +36,17 @@ function MostrarFoto() {
                   src={"/" + usuarioEncontrado.foto}
                   style={{
                     width: 400,
-                    height: 400,
+                    // height: 400,
                   }}
                   alt="foto cargada"
                 ></img>
               </div>
               <div>
                 <p>{usuarioEncontrado.foto}</p>
-                <p>{usuarioEncontrado.nombre}</p>
-                <p>{usuarioEncontrado.apellido}</p>
+                <p>
+                  {usuarioEncontrado.nombre}&nbsp;
+                  {usuarioEncontrado.apellido}
+                </p>
                 <p>{usuarioEncontrado.telefono}</p>
                 <p>{usuarioEncontrado.correo}</p>
                 <p>{usuarioEncontrado.lugar_compra}</p>
