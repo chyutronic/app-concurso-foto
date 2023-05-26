@@ -9,8 +9,14 @@ function Modal({ estado, cambiarEstado }) {
           <div>
             <div className={estilos.ventanaModal}>
               <div className={estilos.contenedorModal}>
-                <div className={estilos.nav}>
-                  <div className={estilos.contenedorPregunta}>
+                <div className={estilos.contenedorColumnas}>
+                  <div className={estilos.columna}>
+                    <img
+                      className={estilos.gatoVoladorCostado}
+                      src="/catsGatoVoladorCostado.svg"
+                    ></img>
+                  </div>
+                  <div className={estilos.columnaFormulario}>
                     <div className={estilos.logo}>
                       <img
                         className={estilos.logos}
@@ -48,6 +54,9 @@ function Modal({ estado, cambiarEstado }) {
                         src="/catsGatoVolador.svg"
                       ></img>
                     </div>
+                  </div>
+                  <div className={estilos.columna}>
+                    <img className={estilos.botella} src="/bot3.png"></img>
                   </div>
                 </div>
               </div>

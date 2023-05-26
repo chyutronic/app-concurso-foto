@@ -1,5 +1,26 @@
 .contenedor {
-  @apply flex justify-center h-screen w-screen bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-bottom bg-no-repeat;
+  @apply flex justify-center h-screen w-screen bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondo.jpg')] bg-cover bg-bottom bg-no-repeat;
+}
+
+.contenedorColumnas {
+  @apply grid grid-cols-1 md:grid-cols-4;
+  /* grid-template-columns: 1fr 2fr 1fr; */
+}
+
+.columnaFormulario {
+  @apply col-span-1 md:col-span-2;
+}
+
+.columna {
+  @apply md:col-span-1;
+}
+
+.gatoVolador {
+  @apply hidden md:block md:w-[70%] md:mt-[50%] ml-0;
+}
+
+.botella {
+  @apply hidden md:block md:w-[75%] mx-auto mt-10;
 }
 
 .contenedorFormulario {
@@ -7,15 +28,15 @@
 }
 
 .saludo {
-  @apply md:max-w-[60%] mx-auto text-center text-red-600 font-semibold text-xl md:text-5xl mt-5 md:mt-10 uppercase tracking-widest;
+  @apply mx-auto text-center text-red-600 font-semibold text-xl md:text-5xl mt-5 md:mt-10 uppercase tracking-widest;
 }
 
 .titulo {
-  @apply w-11/12 md:max-w-[60%] mx-auto text-center text-black font-semibold text-sm md:text-xl mt-3 md:mt-5 md:mb-5 uppercase;
+  @apply w-11/12 mx-auto text-center text-black font-semibold text-sm md:text-xl mt-3 md:mt-5 md:mb-5 uppercase;
 }
 
 .titulo2 {
-  @apply w-11/12 md:max-w-[40%] mx-auto text-center text-black text-xs md:text-lg mt-3 md:mt-5 mb-3 md:mb-5 uppercase;
+  @apply w-11/12 mx-auto text-center text-black text-xs md:text-lg mt-3 md:mt-5 mb-3 md:mb-5 uppercase;
 }
 
 .input {

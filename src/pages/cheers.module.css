@@ -3,7 +3,7 @@
 }
 
 .contenedorModal {
-  @apply bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondo.jpg')] bg-cover bg-top bg-no-repeat w-full h-full;
+  @apply bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondo.jpg')] bg-cover bg-bottom bg-no-repeat w-screen h-screen;
 }
 
 .logo {
@@ -27,7 +27,15 @@
 }
 
 .nav {
-  @apply flex justify-center;
+  @apply justify-center grid grid-cols-1 md:grid-cols-4;
+}
+
+.columnaFormulario {
+  @apply col-span-1 md:col-span-2;
+}
+
+.columna {
+  @apply md:col-span-1;
 }
 
 .botella {
@@ -36,4 +44,12 @@
 
 .botellaCel {
   @apply mx-auto w-[160px] md:hidden block mt-8 mb-10;
+}
+
+.botellaCostado {
+  @apply hidden md:block md:w-[75%] mx-auto mt-10;
+}
+
+.gatoVoladorCostado {
+  @apply hidden md:block md:w-[70%] md:mt-[50%] ml-0 opacity-5;
 }

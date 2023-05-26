@@ -3,12 +3,28 @@
 }
 
 .contenedorModal {
-  @apply bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-top bg-no-repeat w-full h-full;
+  @apply bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondo.jpg')] bg-cover bg-bottom bg-no-repeat w-screen h-screen;
 }
 
-/* .nav {
-  @apply flex h-full;
-} */
+.contenedorColumnas {
+  @apply grid grid-cols-1 md:grid-cols-4;
+}
+
+.columna {
+  @apply md:col-span-1;
+}
+
+.columnaFormulario {
+  @apply col-span-1 md:col-span-2;
+}
+
+.gatoVoladorCostado {
+  @apply hidden md:block md:w-[70%] md:mt-[50%] ml-0;
+}
+
+.botella {
+  @apply hidden md:block md:w-[75%] mx-auto mt-10;
+}
 
 /* .contenedorPregunta {
   @apply -mt-40 md:-mt-60;

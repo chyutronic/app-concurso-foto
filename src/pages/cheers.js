@@ -12,22 +12,22 @@ function Cheers() {
   useEffect(() => {
     document.title = "Concert at Sea / Cheers";
 
-    if (logeado === false) {
-      router.push("/");
-    }
+    // if (logeado === false) {
+    //   router.push("/");
+    // }
 
-    const timer = setTimeout(() => {
-      // Aquí puedes llamar a la función que deseas ejecutar después de un tiempo determinado
-      // router.push("/");
-      location.reload();
+    // const timer = setTimeout(() => {
+    //   // Aquí puedes llamar a la función que deseas ejecutar después de un tiempo determinado
+    //   // router.push("/");
+    //   location.reload();
 
-      console.log("La función se ejecutó después de 8 segundos");
-    }, 8000); // 8000 milisegundos = 10 segundos
+    //   console.log("La función se ejecutó después de 8 segundos");
+    // }, 8000); // 8000 milisegundos = 10 segundos
 
-    // Importante: Limpia el temporizador en el momento en que el componente se desmonta o cuando useEffect se vuelva a ejecutar.
-    return () => {
-      clearTimeout(timer);
-    };
+    // // Importante: Limpia el temporizador en el momento en que el componente se desmonta o cuando useEffect se vuelva a ejecutar.
+    // return () => {
+    //   clearTimeout(timer);
+    // };
   }, []);
 
   return (
@@ -36,7 +36,13 @@ function Cheers() {
         <div className={estilos.contenedorModal}>
           {intranet && <BotonIntranet />}
           <div className={estilos.nav}>
-            <div>
+            <div className={estilos.columna}>
+              <img
+                className={estilos.gatoVoladorCostado}
+                src="/catsGatoVoladorCostado.svg"
+              ></img>
+            </div>
+            <div className={estilos.columnaFormulario}>
               <img
                 className={estilos.gatoVolador}
                 src="/catsGatoVolador.svg"
@@ -57,6 +63,9 @@ function Cheers() {
                 ></img>
                 {/* <img className={estilos.botella} src="/catsBotella.png"></img> */}
               </div>
+            </div>
+            <div className={estilos.columna}>
+              <img className={estilos.botellaCostado} src="/bot3.png"></img>
             </div>
           </div>
         </div>
