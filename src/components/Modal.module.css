@@ -3,7 +3,7 @@
 }
 
 .contenedorModal {
-  @apply bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-bottom bg-no-repeat w-full h-full;
+  @apply bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-top bg-no-repeat w-full h-full;
 }
 
 /* .nav {
