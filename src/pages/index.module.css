@@ -1,5 +1,5 @@
 .contenedor {
-  @apply flex justify-center min-h-screen w-screen bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-top bg-no-repeat;
+  @apply flex justify-center h-screen w-screen bg-[url('/catsFondoCel.jpg')] md:bg-[url('/catsFondoBotellaGato.jpg')] bg-cover bg-bottom bg-no-repeat;
 }
 
 .contenedorFormulario {
