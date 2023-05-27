@@ -40,8 +40,8 @@ function Home() {
     e.preventDefault();
     try {
       if (foto) {
-        setUploading(true);
         if (captcha.current.getValue()) {
+          setUploading(true);
           let formulario = document.getElementById("formul");
 
           const formdata = new FormData();
@@ -61,7 +61,8 @@ function Home() {
           formulario.reset();
           router.push("/cheers");
         } else {
-          router.push("/");
+          // router.push("/");
+          alert("reCAPTCHA missing...");
         }
       } else {
         alert("Image missing...");
