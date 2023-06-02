@@ -5,3 +5,7 @@
 .texto {
   @apply text-white text-xs md:text-base text-center;
 }
+
+.puntero {
+  @apply cursor-pointer;
+}

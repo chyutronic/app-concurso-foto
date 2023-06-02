@@ -1,17 +1,17 @@
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import estilos from "./legales.module.css";
-import { useContext, useEffect } from "react";
-import { DataContext } from "@/contexts/DataContext";
+import { useEffect } from "react";
+// import { DataContext } from "@/contexts/DataContext";
 
 function Legales() {
-  const { legales } = useContext(DataContext);
-  const router = useRouter();
+  // const { legales } = useContext(DataContext);
+  // const router = useRouter();
 
   useEffect(() => {
     document.title = "Algemene Voorwaarden";
-    if (!legales) {
-      router.push("/");
-    }
+    // if (!legales) {
+    //   router.push("/");
+    // }
   }, []);
 
   return (
@@ -102,7 +102,10 @@ function Legales() {
           kunt u contact opnemen met het hoofdkantoor van de organisatie of een
           e-mail sturen naar{" "}
           <strong>
-            <a href="marketing@deltawines.eu"> Marketing@deltawines.eu</a>
+            <a href="mailto:marketing@deltawines.eu">
+              {" "}
+              Marketing@deltawines.eu
+            </a>
           </strong>
         </p>
       </div>
