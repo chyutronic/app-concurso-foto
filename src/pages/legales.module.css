@@ -1,0 +1,19 @@
+.contenedor {
+  @apply w-full h-full bg-[#eedd57];
+}
+
+.contenedorTexto {
+  @apply md:w-[800px] w-11/12 mx-auto bg-[#eedd57] py-10 md:py-20;
+}
+
+.texto {
+  @apply text-base md:text-lg text-justify;
+}
+
+.logo {
+  @apply mx-auto md:flex justify-center md:gap-24 pt-8 md:pt-24;
+}
+
+.logos {
+  @apply w-[200px] md:w-[270px] pt-6 md:pt-0 mx-auto md:mx-0;
+}

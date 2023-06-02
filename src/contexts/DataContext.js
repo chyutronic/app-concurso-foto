@@ -9,6 +9,7 @@ export function DataContextProvider({ children }) {
   const [logeado, setLogeado] = useState(false);
   const [usuarios, setUsuarios] = useState([]);
   const [idSelect, setIdSelect] = useState(null);
+  const [legales, setLegales] = useState(false);
 
   return (
     <DataContext.Provider
@@ -25,6 +26,8 @@ export function DataContextProvider({ children }) {
         setUsuarios,
         idSelect,
         setIdSelect,
+        legales,
+        setLegales,
       }}
     >
       {children}

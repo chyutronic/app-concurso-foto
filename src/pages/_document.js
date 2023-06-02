@@ -6,7 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <title>Concert at Sea</title>
-        <meta name="description" content="Página concurso de gatonegro" />
+        <meta name="description" content="Concert at Sea - GatoNegro" />
         <link rel="icon" href="/copa.png" />
         <link rel="apple-touch-icon" href="/ruta/a/la/imagen.png" />
         <Script
