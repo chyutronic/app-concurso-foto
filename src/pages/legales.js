@@ -8,7 +8,7 @@ function Legales() {
   // const router = useRouter();
 
   useEffect(() => {
-    document.title = "Algemene Voorwaarden";
+    document.title = "Concert at Sea / Algemene Voorwaarden";
     // if (!legales) {
     //   router.push("/");
     // }

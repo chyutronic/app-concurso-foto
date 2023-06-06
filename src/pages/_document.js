@@ -1,11 +1,11 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import { Html, Main, Head, NextScript } from "next/document";
 import Script from "next/script";
 
 export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        {/* <title>Concert at Sea</title> */}
+        <title>Concert at Sea</title>
         <meta name="description" content="Concert at Sea - GatoNegro" />
         <link rel="icon" href="/copa.png" />
         <link rel="apple-touch-icon" href="/ruta/a/la/imagen.png" />
