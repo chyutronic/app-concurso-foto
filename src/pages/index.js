@@ -7,6 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/router";
 import Pie from "@/components/Pie";
 import ModalUploading from "@/components/ModalUploading";
+import { NextSeo } from "next-seo";
 
 function Home() {
   const {
@@ -81,11 +82,11 @@ function Home() {
   };
 
   useEffect(() => {
-    if (modal) {
-      document.title = "Concert at Sea";
-    } else {
-      document.title = "Concert at Sea / Form";
-    }
+    // if (modal) {
+    //   document.title = "Concert at Sea";
+    // } else {
+    //   document.title = "Concert at Sea / Form";
+    // }
 
     if (logeado === true) {
       location.reload();
@@ -94,6 +95,7 @@ function Home() {
 
   return (
     <div>
+      <NextSeo title="Concert at Sea / Form" />
       <div className={estilos.contenedor}>
         <div>
           <div className={estilos.contenedorColumnas}>

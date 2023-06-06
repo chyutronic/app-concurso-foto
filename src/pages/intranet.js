@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import { DataContext } from "@/contexts/DataContext";
 import MostrarFoto from "@/components/MostrarFoto";
 import ModalIntranet from "@/components/ModalIntranet";
+import { NextSeo } from "next-seo";
 
 function Intranet() {
   const {
@@ -40,6 +41,7 @@ function Intranet() {
 
   return (
     <>
+      <NextSeo title="Concert at Sea / Intranet" />
       <div className={estilos.contenedor}>
         <div>
           <div>

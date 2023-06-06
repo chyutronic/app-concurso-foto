@@ -4,13 +4,14 @@ import { DataContext } from "@/contexts/DataContext";
 import { useContext, useEffect } from "react";
 import BotonIntranet from "@/components/BotonIntranet";
 import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 
 function Cheers() {
   const { intranet, logeado } = useContext(DataContext);
   const router = useRouter();
 
   useEffect(() => {
-    document.title = "Concert at Sea / Cheers";
+    // document.title = "Concert at Sea / Cheers";
 
     if (logeado === false) {
       router.push("/");
@@ -32,6 +33,7 @@ function Cheers() {
 
   return (
     <div>
+      <NextSeo title="Concert at Sea / Cheers" />
       <div className={estilos.ventanaModal}>
         <div className={estilos.contenedorModal}>
           {intranet && <BotonIntranet />}

@@ -1,21 +1,23 @@
 // import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 import estilos from "./legales.module.css";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 // import { DataContext } from "@/contexts/DataContext";
 
 function Legales() {
   // const { legales } = useContext(DataContext);
   // const router = useRouter();
 
-  useEffect(() => {
-    document.title = "Concert at Sea / Algemene Voorwaarden";
-    // if (!legales) {
-    //   router.push("/");
-    // }
-  }, []);
+  // useEffect(() => {
+  //   document.title = "Concert at Sea / Algemene Voorwaarden";
+  //   // if (!legales) {
+  //   //   router.push("/");
+  //   // }
+  // }, []);
 
   return (
     <div className={estilos.contenedor}>
+      <NextSeo title="Concert at Sea / Algemene Voorwaarden" />
       <div className={estilos.logo}>
         <img className={estilos.logos} src="/catsLogoConcert.svg"></img>
         <img className={estilos.logos} src="/catsLogoGatoNegro.svg"></img>
