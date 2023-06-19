@@ -34,6 +34,10 @@
   @apply mx-auto md:flex justify-center gap-14 mt-16 md:mt-24;
 }
 
+.closed {
+  @apply mx-auto md:flex justify-center w-[250px] md:w-[450px] gap-14 mt-16 md:mt-24;
+}
+
 .logos {
   @apply w-[200px] md:w-[270px] mx-auto mt-6 md:mt-0;
 }
