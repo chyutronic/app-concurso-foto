@@ -10,13 +10,6 @@ const pool = createPool({
   ssl: {
     rejectUnauthorized: false,
   },
-
-  // config base de datos local
-  // host: "localhost",
-  // user: "root",
-  // password: "hijo0010",
-  // port: 3306,
-  // database: "usuariosfotodb",
 });
 
 export { pool };
