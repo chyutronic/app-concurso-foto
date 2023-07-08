@@ -2,12 +2,13 @@ import { DataContext } from "@/contexts/DataContext";
 import { useContext, useState, useRef, useEffect } from "react";
 import estilos from "./index.module.css";
 import axios from "axios";
-import Closed from "@/components/Closed";
+// import Closed from "@/components/Closed";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRouter } from "next/router";
 import Pie from "@/components/Pie";
 import ModalUploading from "@/components/ModalUploading";
 import { NextSeo } from "next-seo";
+import Modal from "@/components/Modal";
 
 function Home() {
   const {
@@ -255,7 +256,8 @@ function Home() {
           <Pie />
         </div>
       </div>
-      <Closed estado={modal} cambiarEstado={setModal} />
+      {/* <Closed estado={modal} cambiarEstado={setModal} /> */}
+      <Modal estado={modal} cambiarEstado={setModal} />
       <ModalUploading estado={uploading} cambiarEstado={setUploading} />
     </div>
   );

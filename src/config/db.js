@@ -2,9 +2,9 @@ import { createPool } from "mysql2/promise";
 
 const pool = createPool({
   //conexión con BD Planetscale
-  host: "aws.connect.psdb.cloud",
-  user: "uvocpjt0pdi8og7m9sm5",
-  password: "pscale_pw_nXzWv4921UZ5nNois2THbrxlqTgxNE01NwUXUJJwk0D",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
   port: 3306,
   database: "usuariosfotodb",
   ssl: {
