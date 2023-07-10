@@ -5,10 +5,15 @@ function ModalIntranet({ estado, cambiarEstado }) {
   const [nombre, setNombre] = useState("");
   const [clave, setClave] = useState("");
 
+  const usuarioIntranet = process.env.NEXT_PUBLIC_INTRANET_USER;
+  const claveIntranet = process.env.NEXT_PUBLIC_INTRANET_PASS;
+
   function handleSubmit() {
-    if (nombre === "adminGatoNegro" && clave === "bdvsh_2023ñ#!") {
+    if (nombre === usuarioIntranet && clave === claveIntranet) {
       cambiarEstado(false);
     }
+    console.log(usuarioIntranet);
+    console.log(claveIntranet);
   }
 
   return (
